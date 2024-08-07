@@ -8,17 +8,18 @@ async function handleGenerateNewShortURL(req, res) {
     if (!body.url) {
       console.log("bad request");
       return res
-        .status(404)
-        .json({ message: "error 404 bad request invalid url" });
+        .status(400)
+        .json({ message: "error 400 bad request invalid url" });
     }
-    const shortID = shortid(8);
+    // const newShortID = shortid(8);
+    const newShortID = shortid.generate();
     await URL.create({
-      shortId: shortID,
+      shortId: newShortID,
       redirectURL: body.url,
       visitHistory: [],
     });
 
-    return res.json({ id: shortID });
+    return res.json({ id: newShortID });
   } catch (err) {
     console.log("server error");
     res.status(500).json({ message: " internal server error" });

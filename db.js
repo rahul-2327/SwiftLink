@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
-
-const URL = "mongodb://localhost:27017/short-url";
+require("dotenv").config();
+// const URL = "mongodb://localhost:27017/short-url";
+const URL = process.env.DB_URL;
 
 mongoose.connect(URL, {
   useNewURLParser: true,

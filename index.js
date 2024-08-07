@@ -6,8 +6,7 @@ const urlRoute = require("./routes/urlRouter");
 const bodyParser = require("body-parser");
 
 app.use(bodyParser.json());
-
-const PORT = 8001;
+const PORT = process.env.PORT || 8001;
 
 app.use("/url", urlRoute);
 app.get("/:shortId", async (req, res) => {
