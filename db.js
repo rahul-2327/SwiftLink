@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
-// const URL = "mongodb://localhost:27017/short-url";
-const URL = process.env.DB_URL;
+// const URL = "mongodb://localhost:27017/shorturl";
 
+const URL = process.env.DB_URL;
 mongoose.connect(URL, {
   useNewUrlParser: true, // Corrected 'useNewURLParser' to 'useNewUrlParser'
   useUnifiedTopology: true,

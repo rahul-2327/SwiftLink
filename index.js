@@ -5,6 +5,8 @@ const URL = require("./models/url");
 const urlRoute = require("./routes/urlRouter");
 const bodyParser = require("body-parser");
 
+app.use(express.json());
+
 app.use(bodyParser.json());
 const PORT = process.env.PORT || 8001;
 
