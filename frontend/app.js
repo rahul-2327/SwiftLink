@@ -1,11 +1,13 @@
 // app.js
 
+const API_KEY = "http://localhost:8001/url";
+
 document.getElementById("shortenBtn").addEventListener("click", function () {
   const longUrl = document.getElementById("longUrl").value;
 
   if (longUrl) {
     // Make a POST request to your backend to shorten the URL
-    fetch("http://localhost:8001/url", {
+    fetch(API_KEY, {
       // Replace with your backend URL
       method: "POST",
       headers: {

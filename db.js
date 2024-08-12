@@ -7,6 +7,8 @@ mongoose.connect(URL, {
   useNewUrlParser: true, // Corrected 'useNewURLParser' to 'useNewUrlParser'
   useUnifiedTopology: true,
   ssl: true,
+  tls: true,
+  tlsCAFile: "/path/to/ca-certificate.pem",
 });
 
 const db = mongoose.connection;
