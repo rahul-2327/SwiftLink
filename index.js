@@ -4,13 +4,14 @@ const app = express();
 const URL = require("./models/url");
 const urlRoute = require("./routes/urlRouter");
 const bodyParser = require("body-parser");
-
+const path = require("path");
 app.use(express.json());
 
 app.use(bodyParser.json());
 const PORT = process.env.PORT || 8001;
 
 app.use("/url", urlRoute);
+// for redirecting
 app.get("/:shortId", async (req, res) => {
   try {
     const shortID = req.params.shortId;
@@ -41,6 +42,15 @@ app.get("/:shortId", async (req, res) => {
   }
 });
 
-// app.use("/r")
+// // ---------------------------deployment---------------------
+// const __dirname1 = path.resolve();
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static(path.koin(__dirname1, "./build")));
+// } else {
+//   app.get("/", (req, res) => {
+//     res.send("API is running Successfully");
+//   });
+// }
+// // --------------------------deployment------------------
 
 app.listen(PORT, () => console.log("server started on PORT: ", PORT));
