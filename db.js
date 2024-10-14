@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 // Connection string (local or from environment)
-const URL = "mongodb://localhost:27017/shorturl";
+// const URL = "mongodb://localhost:27017/shorturl";
+const URL = process.env.DB_URL;
 
 // Connect to MongoDB
 mongoose.connect(URL, {
